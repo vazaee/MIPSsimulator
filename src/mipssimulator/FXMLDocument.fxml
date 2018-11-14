@@ -9,15 +9,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="650.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8.0.151" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="650.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mipssimulator.FXMLDocumentController">
    <children>
       <MenuBar prefHeight="25.0" prefWidth="1100.0">
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-              <MenuItem mnemonicParsing="false" text="Open" />
-                  <MenuItem mnemonicParsing="false" text="Exit" />
+              <MenuItem mnemonicParsing="false" onAction="#openFile" text="Open" />
+                  <MenuItem mnemonicParsing="false" onAction="#closeApp" text="Exit" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
@@ -37,9 +36,9 @@
             <Font name="Tahoma" size="20.0" />
          </font>
       </Label>
-      <ImageView fitHeight="301.0" fitWidth="490.0" layoutX="305.0" layoutY="348.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="241.0" fitWidth="510.0" layoutX="303.0" layoutY="346.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../Desktop/t2OrgArq/src/Open.png" />
+            <Image url="@../image/reference.png" />
          </image>
       </ImageView>
    </children>

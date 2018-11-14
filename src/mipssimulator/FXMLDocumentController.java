@@ -5,12 +5,16 @@
  */
 package mipssimulator;
 
+import codes.ReadFile;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
+import javafx.stage.FileChooser;
 
 /**
  *
@@ -18,18 +22,28 @@ import javafx.scene.control.Label;
  */
 public class FXMLDocumentController implements Initializable {
     
-    @FXML
-    private Label label;
-    
-    @FXML
-    private void handleButtonAction(ActionEvent event) {
-        System.out.println("You clicked me!");
-        label.setText("Hello World!");
-    }
-    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
     
+    @FXML
+    void openFile(ActionEvent event) throws FileNotFoundException {
+         FileChooser fileChooser = new FileChooser();
+         FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("MIPS files (*.asm)", "*.asm");
+         
+         fileChooser.getExtensionFilters().add(extFilter);
+         File file = fileChooser.showOpenDialog(null);
+         
+         if (file != null) {
+            ReadFile.getInstance().init(file);
+         }
+    }
+    
+    @FXML
+    void closeApp(ActionEvent event) {
+        Platform.exit();
+        System.exit(0);
+    }
+
 }
